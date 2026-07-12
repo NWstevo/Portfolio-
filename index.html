@@ -156,6 +156,13 @@
       gap: 25px;
     }
 
+    .project-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
     .project-card {
       background: rgba(255, 255, 255, 0.06);
       padding: 28px;
@@ -164,6 +171,7 @@
       transition: 0.35s ease;
       opacity: 0;
       transform: translateY(40px);
+      height: 100%;
     }
 
     .project-card.show,
@@ -172,10 +180,51 @@
       transform: translateY(0);
     }
 
-    .project-card:hover {
+    .project-card-link:hover .project-card {
       transform: translateY(-10px) scale(1.02);
       background: rgba(56, 189, 248, 0.12);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .project-card-link:hover .project-thumb::after {
+      opacity: 1;
+    }
+
+    .project-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.9);
+      background: linear-gradient(135deg, #1e40af, #38bdf8);
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-thumb::after {
+      content: "Visit ↗";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 6, 23, 0.55);
+      color: #f8fafc;
+      font-size: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
     .project-card h3 {
@@ -187,6 +236,34 @@
       color: #cbd5e1;
       line-height: 1.6;
       margin-bottom: 18px;
+    }
+
+    .progress-wrap {
+      margin-top: 20px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #1e40af);
+      transition: width 1.4s ease;
     }
 
     .tag {
@@ -274,8 +351,8 @@
 
     <div class="about-box reveal">
       <p>
-        I enjoy learning web development, JavaScript, React, UI/UX design, and software engineering.
-        My goal is to become a professional frontend developer and create websites and applications
+        I am a software engineer student. I have skills and enjoy learning about web development, Python, JavaScript, React, UI/UX design, Android/IOS development and automations.
+        My goal is to become a professional software engineer with specialty in AI engineering and Fullstack development with the ability of Creating websites and applications
         that solve real problems for people and businesses.
       </p>
     </div>
@@ -290,58 +367,197 @@
     <div class="project-category">
       <h2 class="category-title">Completed</h2>
       <div class="project-grid">
-        <div class="project-card reveal">
-          <h3>Portfolio Website</h3>
-          <p>A personal website to present my skills, background, and development journey.</p>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
+        <a class="project-card-link" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">Portfolio</div>
+            <h3>Portfolio Website</h3>
+            <p>A personal website to present my skills, background, and development journey.</p>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <div class="progress-wrap" data-progress="100">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
 
-        <div class="project-card reveal">
-          <h3>Java Library System</h3>
-          <p>A simple catalog system for managing books, users, and library records.</p>
-          <span class="tag">Java</span>
-          <span class="tag">OOP</span>
-        </div>
+        <a class="project-card-link" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">Library</div>
+            <h3>Java Library System</h3>
+            <p>A simple catalog system for managing books, users, and library records.</p>
+            <span class="tag">Java</span>
+            <span class="tag">OOP</span>
+            <div class="progress-wrap" data-progress="100">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card-link" href="https://bleris.netlify.app/" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">
+              <img src="images/bleris.png" alt="Bleris Cakes and Pastries homepage" onerror="this.parentElement.textContent='Bleris'">
+            </div>
+            <h3>Bleris Cakes and Pastries</h3>
+            <p>An online storefront for a home bakery in Kumba. Customers browse a full cake and pastry catalogue, add items to a cart, place custom orders for dessert tables and centerpieces, and contact the baker directly.</p>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">E-commerce</span>
+            <div class="progress-wrap" data-progress="100">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
     <div class="project-category">
       <h2 class="category-title">Progress</h2>
       <div class="project-grid">
-        <div class="project-card reveal">
-          <h3>Chat Application</h3>
-          <p>A server-client chat application where multiple users can send and receive messages.</p>
-          <span class="tag">Java</span>
-          <span class="tag">Networking</span>
-        </div>
+        <a class="project-card-link" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">Chat</div>
+            <h3>Chat Application</h3>
+            <p>A server-client chat application where multiple users can send and receive messages.</p>
+            <span class="tag">Java</span>
+            <span class="tag">Networking</span>
+            <div class="progress-wrap" data-progress="60">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
 
-        <div class="project-card reveal">
-          <h3>React Learning Projects</h3>
-          <p>A collection of small React apps built while learning components, props, hooks, and routing.</p>
-          <span class="tag">React</span>
-          <span class="tag">Frontend</span>
-        </div>
+        <a class="project-card-link" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">React</div>
+            <h3>React Learning Projects</h3>
+            <p>A collection of small React apps built while learning components, props, hooks, and routing.</p>
+            <span class="tag">React</span>
+            <span class="tag">Frontend</span>
+            <div class="progress-wrap" data-progress="50">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card-link" href="https://jerdkonsultrecruitment.de/" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">
+              <img src="images/jerd.png" alt="JERD Konsult Recruitment Agency homepage" onerror="this.parentElement.textContent='JERD'">
+            </div>
+            <h3>JERD Konsult Recruitment Agency</h3>
+            <p>A multipurpose consulting platform connecting global talent with global opportunities. Job seekers and students can find international career openings, while employers can source and hire across borders, with dedicated flows for candidates, employers, and industries served.</p>
+            <span class="tag">Recruitment</span>
+            <span class="tag">Consulting</span>
+            <span class="tag">International</span>
+            <div class="progress-wrap" data-progress="80">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card-link" href="https://ebzoeysalon.com/" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">
+              <img src="images/ebzoey.png" alt="EB Zoey Beauty Hair Salon homepage" onerror="this.parentElement.textContent='EB Zoey'">
+            </div>
+            <h3>EB Zoey Beauty Hair Salon</h3>
+            <p>A booking site for a Berlin hair and beauty salon. Customers can schedule appointments for male, female, and kids' hair services or manicure/pedicure, and shop cosmetics and jewelry, with built-in coupon and promotion features.</p>
+            <span class="tag">Booking</span>
+            <span class="tag">E-commerce</span>
+            <span class="tag">Beauty</span>
+            <div class="progress-wrap" data-progress="90">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
     <div class="project-category">
       <h2 class="category-title">Current</h2>
       <div class="project-grid">
-        <div class="project-card reveal">
-          <h3>TrAsted</h3>
-          <p>A B2C platform idea focused on trust, services, and user-friendly digital interaction.</p>
-          <span class="tag">Startup</span>
-          <span class="tag">UI/UX</span>
-        </div>
+        <a class="project-card-link" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">TrAsted</div>
+            <h3>TrAsted</h3>
+            <p>A B2C platform idea focused on trust, services, and user-friendly digital interaction.</p>
+            <span class="tag">Startup</span>
+            <span class="tag">UI/UX</span>
+            <div class="progress-wrap" data-progress="25">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
 
-        <div class="project-card reveal">
-          <h3>Frontend Developer Roadmap</h3>
-          <p>My current journey to master HTML, CSS, JavaScript, React, and modern web development.</p>
-          <span class="tag">Learning</span>
-          <span class="tag">Career</span>
-        </div>
+        <a class="project-card-link" href="#" target="_blank" rel="noopener noreferrer">
+          <div class="project-card reveal">
+            <div class="project-thumb">Roadmap</div>
+            <h3>Frontend Developer Roadmap</h3>
+            <p>My current journey to master HTML, CSS, JavaScript, React, and modern web development.</p>
+            <span class="tag">Learning</span>
+            <span class="tag">Career</span>
+            <div class="progress-wrap" data-progress="40">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">0%</span>
+              </div>
+              <div class="progress-track">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -364,8 +580,14 @@
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
-        if (elementTop < windowHeight - 100) {
+        if (elementTop < windowHeight - 100 && !element.classList.contains("show")) {
           element.classList.add("show");
+          const progressWrap = element.querySelector(".progress-wrap");
+          if (progressWrap) {
+            const percent = progressWrap.dataset.progress || 0;
+            progressWrap.querySelector(".progress-fill").style.width = `${percent}%`;
+            progressWrap.querySelector(".progress-percent").textContent = `${percent}%`;
+          }
         }
       });
     };
